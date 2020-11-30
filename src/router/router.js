@@ -21,6 +21,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
+    path: '/editar/:id',
+    name: 'Editar',
+    component: () => import(/* webpackChunkName: "login" */ '../views/Editar.vue')
+  },
+  {
+    path: '/agregando',
+    name: 'Agregando',
+    component: () => import(/* webpackChunkName: "agregando" */ '../views/Agregando.vue'),
+    meta: {
+      login: true
+    },
+  },
+  {
     path: '*',
     redirect: '/login'
   }
@@ -41,7 +54,7 @@ router.beforeEach((to,from,next)=>{
   if (registroRequerido && !usuario) {
       next('/login');
   } else {
-    next(); 
+    setTimeout(() => {next()},1000)
   }
 })
 

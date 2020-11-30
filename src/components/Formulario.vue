@@ -55,7 +55,6 @@ export default {
           .signInWithEmailAndPassword(this.form.email, this.form.clave)
           .then((resp) => {
             console.log(resp.user.email);
-            this.$router.push("/");
           })
           .catch((error) => {
             if (error.code == "auth/wrong-password") {
